@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { FormComponent } from './form.comopnent';
+import { FormElement } from './base.element'
+
+import { FormComponent } from '../form.comopnent';
 
 @Component({
-  selector: 'my-app',
-  template: `
-      <h2>Form generator</h2>
-      <dynamic-form></dynamic-form>
-  `,
+  selector: 'fg-input',
+  template:`<input type="text" value="{{elementProperties.title}}" [disabled]="isDisabled(elementProperties.disabled)">`
 })
-export class AppComponent  { name = 'Angular'; }
+export class inputComponent extends FormElement {
+
+  @Input()  elementProperties:string;
+
+}
